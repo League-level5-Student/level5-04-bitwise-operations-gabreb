@@ -75,19 +75,20 @@ public class Base64Decoder {
 	//3. Complete this method so that it takes in a string of any length
 	//   and returns the full byte array of the decoded base64 characters.
 	public static byte[] base64StringToByteArray(String file) {
-		byte[] b = new byte[file.length()*(3/4)];
-		
+			byte[] b = new byte[(file.length()*3)/4];
+		byte[]jack = new byte[3];
 		int counter = 0; 
 		
 		for (int i = 0; i < file.length(); i+=4) {
 			String wack = file.substring(i, i+4);
-			b[counter] = convert4CharsTo24Bits(wack);
-			for (int i = 0; i < wack.length; i )
-			
-	//		counter += 1; 
+			jack = convert4CharsTo24Bits(wack);
+			for (int z = 0; z < 3; z++) {
+			b[z+counter] = jack[z];
+			}
+			counter+=3;
 		
 		}
 		
-		return null;
+		return b;
 	}
 }
